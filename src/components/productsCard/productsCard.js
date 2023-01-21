@@ -1,5 +1,6 @@
 import React from 'react';
 import {View, Text, Pressable, Image} from 'react-native';
+import {PRODUCT_DETAIL_SCREEN} from '../../navigation/screen-names';
 import createStyles from './productCard.styles';
 
 const ProductsCard = props => {
@@ -8,7 +9,7 @@ const ProductsCard = props => {
     <View>
       <Pressable
         onPress={() => {
-          // todo: must navigate to products detail page
+          props.navigation.navigate(PRODUCT_DETAIL_SCREEN, {product: product});
         }}
         style={({pressed}) => [
           {

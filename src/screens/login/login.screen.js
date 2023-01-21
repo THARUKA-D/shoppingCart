@@ -1,8 +1,9 @@
 import React from 'react';
 import {View, Text, TextInput, Pressable} from 'react-native';
+import {PRODUCTS_SCREEN} from '../../navigation/screen-names';
 import createStyles from './login.style';
 
-const LoginScreen = () => {
+const LoginScreen = props => {
   return (
     <View style={createStyles.container}>
       <View style={createStyles.body}>
@@ -17,7 +18,9 @@ const LoginScreen = () => {
         </View>
         <View style={createStyles.wrapperBottom}>
           <Pressable
-            onPress={() => {}}
+            onPress={() => {
+              props.navigation.navigate(PRODUCTS_SCREEN);
+            }}
             style={({pressed}) => [
               {
                 backgroundColor: pressed ? 'red' : 'blue',

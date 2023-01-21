@@ -3,6 +3,7 @@ import {View, ScrollView, Text} from 'react-native';
 import createStyles from './product-detail.style';
 import SliderBar from '../../components/slider-bar/slider-bar';
 import Button from '../../components/button/button';
+import ImageSlider from '../../components/image-slider/image-slider';
 
 const ProductDetailScreen = ({route}) => {
   // i have taken the product as a prop so,
@@ -21,7 +22,7 @@ const ProductDetailScreen = ({route}) => {
         contentInsetAdjustmentBehavior="automatic"
         contentContainerStyle={createStyles.container}>
         <View style={createStyles.imgSlider}>
-          {/* todo: Image slider must be implemented in next PR ASAP*/}
+          <ImageSlider images={product.images} />
         </View>
 
         <View style={createStyles.detailView}>
@@ -41,6 +42,7 @@ const ProductDetailScreen = ({route}) => {
             {/* todo: have to update the rating value with starts */}
           </View>
         </View>
+
         <View style={createStyles.sliderBar}>
           <Text style={createStyles.centerText}>Quantity</Text>
           <SliderBar
@@ -53,6 +55,7 @@ const ProductDetailScreen = ({route}) => {
             setBuyQuantity={setBuyQuantity}
           />
         </View>
+
         <View style={createStyles.button}>
           <Button
             onPress={() => {}}

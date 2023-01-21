@@ -7,7 +7,6 @@ const SliderBar = props => {
   const getQuantity = value => {
     const intValue = parseInt(value);
     props.setBuyQuantity(intValue);
-    console.log(intValue);
   };
 
   return (

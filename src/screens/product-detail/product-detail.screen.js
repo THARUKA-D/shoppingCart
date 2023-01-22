@@ -4,18 +4,39 @@ import createStyles from './product-detail.style';
 import SliderBar from '../../components/slider-bar/slider-bar';
 import Button from '../../components/button/button';
 import ImageSlider from '../../components/image-slider/image-slider';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const ProductDetailScreen = ({route}) => {
+  const [buyQuantity, setBuyQuantity] = useState(1);
+
   // i have taken the product as a prop so,
   // no need to fetch the product again.
   // As mentioned in the TEST instuctions i will add the fetch but will be commented...
   const product =
     route.params && route.params.product ? route.params.product : [];
-  const [buyQuantity, setBuyQuantity] = useState(1);
   const PRODUCT_NOT_AVAILABLE_IN_THE_STORE = 0;
+  console.log(product.id);
 
   // TO be implemented but not needed because i get the products as a prop.
   useEffect(() => {}, []);
+
+  const addToCart = async () => {
+    const PRODUCT_MAIN_INFO = {
+      image: product.images[0],
+      title: product.title,
+      price: product.price * buyQuantity, // total price
+      quantity: buyQuantity,
+    };
+
+    try {
+      await AsyncStorage.setItem(
+        `product_${product.id}`,
+        JSON.stringify(PRODUCT_MAIN_INFO),
+      );
+    } catch (e) {
+      console.log('Error saving to cart: ', e);
+    }
+  };
 
   return (
     <View style={createStyles.mainContainer}>
@@ -59,7 +80,9 @@ const ProductDetailScreen = ({route}) => {
 
         <View style={createStyles.button}>
           <Button
-            onPress={() => {}}
+            onPress={() => {
+              addToCart();
+            }}
             buttonText={`Add to Cart (${buyQuantity})`}
           />
         </View>

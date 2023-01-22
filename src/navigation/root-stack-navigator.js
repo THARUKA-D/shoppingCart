@@ -1,12 +1,9 @@
 import React from 'react';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
-import {LoginScreen, ProductDetailScreen, ProductsScreen} from '../screens';
-import {
-  LOGIN_SCREEN,
-  PRODUCTS_SCREEN,
-  PRODUCT_DETAIL_SCREEN,
-} from './screen-names';
+import {LoginScreen} from '../screens';
+import {LOGIN_SCREEN, TAB_STACK} from './screen-names';
+import TabNavigator from './tab-navigator';
 
 const Stack = createNativeStackNavigator();
 
@@ -24,20 +21,11 @@ const RootStackNavigator = props => {
         }}
       />
       <Stack.Screen
-        name={PRODUCTS_SCREEN}
-        component={ProductsScreen}
+        name={TAB_STACK}
+        component={TabNavigator}
         options={{
           headerTitle: 'Products',
-          headerShown: true,
-          headerBackTitleVisible: false,
-        }}
-      />
-      <Stack.Screen
-        name={PRODUCT_DETAIL_SCREEN}
-        component={ProductDetailScreen}
-        options={{
-          headerTitle: '',
-          headerShown: true,
+          headerShown: false,
           headerBackTitleVisible: false,
         }}
       />

@@ -1,3 +1,4 @@
-import RootStackNavigator from "./root-stack-navigator";
+import RootStackNavigator from './root-stack-navigator';
+import TabNavigator from './tab-navigator';
 
-export { RootStackNavigator };
+export {RootStackNavigator, TabNavigator};

@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {NavigationContainer} from '@react-navigation/native';
-import {RootStackNavigator} from './src/navigation';
 import {SafeAreaView, StyleSheet} from 'react-native';
+import {RootStackNavigator} from './src/navigation';
 
 function App() {
   const [initialRoute, setInitialRoute] = useState();
@@ -9,7 +9,7 @@ function App() {
   return (
     <SafeAreaView style={styles.sectionContainer}>
       <NavigationContainer>
-        <RootStackNavigator initialRouteName={initialRoute} />
+        <RootStackNavigator />
       </NavigationContainer>
     </SafeAreaView>
   );

@@ -9,7 +9,8 @@ const ProductDetailScreen = ({route}) => {
   // i have taken the product as a prop so,
   // no need to fetch the product again.
   // As mentioned in the TEST instuctions i will add the fetch but will be commented...
-  const product = route.params.product;
+  const product =
+    route.params && route.params.product ? route.params.product : [];
   const [buyQuantity, setBuyQuantity] = useState(1);
   const PRODUCT_NOT_AVAILABLE_IN_THE_STORE = 0;
 
@@ -22,7 +23,7 @@ const ProductDetailScreen = ({route}) => {
         contentInsetAdjustmentBehavior="automatic"
         contentContainerStyle={createStyles.container}>
         <View style={createStyles.imgSlider}>
-          <ImageSlider images={product.images} />
+          {product && product.images && <ImageSlider images={product.images} />}
         </View>
 
         <View style={createStyles.detailView}>

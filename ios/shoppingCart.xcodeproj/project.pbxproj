@@ -16,6 +16,7 @@
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		8C651A9F297D11880078EDAE /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8C651A9E297D0FCC0078EDAE /* FontAwesome.ttf */; };
 		8C651AA0297D11880078EDAE /* Foundation.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8C651A9D297D0FC20078EDAE /* Foundation.ttf */; };
+		8C9D6C2E297D831100DDF67E /* Ionicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8C9D6C2D297D764B00DDF67E /* Ionicons.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		89C6BE57DB24E9ADA2F236DE /* Pods-shoppingCart-shoppingCartTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-shoppingCart-shoppingCartTests.release.xcconfig"; path = "Target Support Files/Pods-shoppingCart-shoppingCartTests/Pods-shoppingCart-shoppingCartTests.release.xcconfig"; sourceTree = "<group>"; };
 		8C651A9D297D0FC20078EDAE /* Foundation.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Foundation.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Foundation.ttf"; sourceTree = "<group>"; };
 		8C651A9E297D0FCC0078EDAE /* FontAwesome.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = FontAwesome.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome.ttf"; sourceTree = "<group>"; };
+		8C9D6C2D297D764B00DDF67E /* Ionicons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Ionicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Ionicons.ttf"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -146,6 +148,7 @@
 			isa = PBXGroup;
 			children = (
 				8C651A9E297D0FCC0078EDAE /* FontAwesome.ttf */,
+				8C9D6C2D297D764B00DDF67E /* Ionicons.ttf */,
 				8C651A9D297D0FC20078EDAE /* Foundation.ttf */,
 			);
 			name = Fonts;
@@ -256,6 +259,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8C9D6C2E297D831100DDF67E /* Ionicons.ttf in Resources */,
 				8C651A9F297D11880078EDAE /* FontAwesome.ttf in Resources */,
 				8C651AA0297D11880078EDAE /* Foundation.ttf in Resources */,
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,

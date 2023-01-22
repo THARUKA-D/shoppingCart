@@ -24,7 +24,7 @@ const ProductDetailScreen = ({route}) => {
     const PRODUCT_MAIN_INFO = {
       image: product.images[0],
       title: product.title,
-      price: product.price,
+      price: product.price * buyQuantity, // total price
       quantity: buyQuantity,
     };
 

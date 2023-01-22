@@ -1,18 +1,17 @@
 import React, {useEffect, useState} from 'react';
-import {View, ScrollView, TextInput, Pressable} from 'react-native';
+import {View, ScrollView} from 'react-native';
 import axios from 'axios';
 
 import ProductsCard from '../../components/productsCard/productsCard';
 import createStyles from './products.style';
 
-const ProductsScreen = props => {
+const ProductsScreen = ({navigation}) => {
   const [allProducts, setAllProducts] = useState([]);
 
   const fetchData = async () => {
     await axios
       .get(`https://dummyjson.com/products`)
       .then(products => {
-        console.log(products.data.products);
         setAllProducts(products.data.products);
       })
       .catch(error => {
@@ -32,7 +31,7 @@ const ProductsScreen = props => {
             <ProductsCard
               key={product.id}
               product={product}
-              navigation={props.navigation}
+              navigation={navigation}
             />
           ))}
       </ScrollView>

@@ -4,21 +4,29 @@ import {View, ScrollView} from 'react-native';
 import {Text} from 'react-native-elements';
 import Button from '../../components/button/button';
 import CartCard from '../../components/cartCard/cartCard';
+import {CHECKOUT_SCREEN} from '../../navigation/screen-names';
 import createStyles from './cart.style';
 
-const CartScreen = () => {
+const CartScreen = ({navigation}) => {
   const [cartItems, setcartItems] = useState([]);
   const [itemKeyArray, setitemKeyArray] = useState([]);
+  const [totalAmount, settotalAmount] = useState('');
 
   const getCartItems = async () => {
     const itemKeys = await AsyncStorage.getAllKeys();
     const itemArray = [];
+    let total = 0;
+
     for (const itemKey of itemKeys) {
       const product = await AsyncStorage.getItem(`${itemKey}`);
-      itemArray.push(JSON.parse(product));
+      const productJSON = JSON.parse(product);
+      itemArray.push(productJSON);
+      total += productJSON.price;
+      settotalAmount(`${total}`);
     }
     setcartItems(itemArray);
     setitemKeyArray(itemKeys);
+    settotalAmount(total);
   };
 
   const onProductDelete = async itemKey => {
@@ -55,7 +63,15 @@ const CartScreen = () => {
               ))}
           </View>
           <View style={createStyles.button}>
-            <Button buttonText={'Checkout'} onPress={() => {}} />
+            <Button
+              buttonText={'Checkout'}
+              onPress={() => {
+                navigation.navigate(CHECKOUT_SCREEN, {
+                  totalAmount: totalAmount,
+                  itemKeyArray: itemKeyArray,
+                });
+              }}
+            />
           </View>
         </ScrollView>
       ) : (

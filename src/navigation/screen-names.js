@@ -4,6 +4,7 @@ const PRODUCT_DETAIL_SCREEN = 'Product_detail';
 const TAB_STACK = 'Tab_stack';
 const PROFILE_SCREEN = 'Profile_screen';
 const CART_SCREEN = 'Cart';
+const CHECKOUT_SCREEN = 'Checkout_screen';
 
 export {
   LOGIN_SCREEN,
@@ -12,4 +13,5 @@ export {
   TAB_STACK,
   PROFILE_SCREEN,
   CART_SCREEN,
+  CHECKOUT_SCREEN,
 };

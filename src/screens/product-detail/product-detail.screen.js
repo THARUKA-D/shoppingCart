@@ -15,7 +15,6 @@ const ProductDetailScreen = ({route}) => {
   const product =
     route.params && route.params.product ? route.params.product : [];
   const PRODUCT_NOT_AVAILABLE_IN_THE_STORE = 0;
-  console.log(product.id);
 
   // TO be implemented but not needed because i get the products as a prop.
   useEffect(() => {}, []);

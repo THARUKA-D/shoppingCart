@@ -2,8 +2,9 @@ import React from 'react';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
 import {LoginScreen} from '../screens';
-import {LOGIN_SCREEN, TAB_STACK} from './screen-names';
+import {CHECKOUT_SCREEN, LOGIN_SCREEN, TAB_STACK} from './screen-names';
 import TabNavigator from './tab-navigator';
+import CheckOutScreen from '../screens/checkout/checkout';
 
 const Stack = createNativeStackNavigator();
 
@@ -27,6 +28,13 @@ const RootStackNavigator = props => {
           headerTitle: 'Products',
           headerShown: false,
           headerBackTitleVisible: false,
+        }}
+      />
+      <Stack.Screen
+        name={CHECKOUT_SCREEN}
+        component={CheckOutScreen}
+        options={{
+          headerTitle: 'Checkout',
         }}
       />
     </Stack.Navigator>

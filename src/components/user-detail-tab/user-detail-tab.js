@@ -23,9 +23,9 @@ const ProfileDetailTab = props => {
     <View style={createStyles.container}>
       <Text style={createStyles.icon}>
         {iconTypeFontAwesome ? (
-          <Icon name={iconName} size={20} color="#900" />
+          <Icon name={iconName} size={20} color="#7575a3" />
         ) : (
-          <IconIonicons name={iconName} size={20} color="#900" />
+          <IconIonicons name={iconName} size={20} color="#7575a3" />
         )}
       </Text>
 

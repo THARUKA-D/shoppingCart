@@ -38,14 +38,16 @@ const TabNavigator = () => {
 
           if (route.name === 'HOME_STACK') {
             iconName = 'home';
-            color = focused ? 'blue' : 'gray';
+            color = focused ? '#6500f3' : 'gray';
           } else if (route.name === PROFILE_SCREEN) {
+            color = focused ? '#6500f3' : 'gray';
             iconName = 'user';
             return (
               <IconFontAwesome name={iconName} size={size} color={color} />
             );
           } else if (route.name === CART_SCREEN) {
             iconName = 'shopping-cart';
+            color = focused ? '#6500f3' : 'gray';
             return (
               <IconFontAwesome name={iconName} size={size} color={color} />
             );

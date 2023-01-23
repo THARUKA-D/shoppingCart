@@ -1,11 +1,25 @@
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import React from 'react';
 import {ScrollView, View} from 'react-native';
 import Button from '../../components/button/button';
 import ProfileDetailTab from '../../components/user-detail-tab/user-detail-tab';
 import UserImageView from '../../components/user-image-view/user-image-view';
+import {LOGIN_SCREEN} from '../../navigation/screen-names';
 import createStyles from './profile.style';
+import {useNavigation} from '@react-navigation/native';
 
 const ProfileScreen = props => {
+  const navigation = useNavigation();
+  const logOut = async () => {
+    try {
+      const allKeys = await AsyncStorage.getAllKeys();
+      await AsyncStorage.multiRemove(allKeys);
+    } catch (error) {
+      console.log('Error on logout : ', e);
+    }
+    navigation.navigate(LOGIN_SCREEN);
+  };
+
   return (
     <View style={createStyles.mainContainer}>
       <ScrollView
@@ -56,7 +70,11 @@ const ProfileScreen = props => {
         </View>
 
         <View>
-          <Button buttonText={'Logout'} onPress={() => {}}></Button>
+          <Button
+            buttonText={'Logout'}
+            onPress={() => {
+              logOut();
+            }}></Button>
         </View>
       </ScrollView>
     </View>

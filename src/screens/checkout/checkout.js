@@ -33,7 +33,7 @@ const CheckOutScreen = ({route, navigation}) => {
         <View>
           <Text style={createStyles.total}>Payment Method</Text>
           <View style={createStyles.radio}>
-            <RadioButtonRN box={false} data={data} selectedBtn={e => {}} />
+            <RadioButtonRN initial={1} box={false} data={data} selectedBtn={e => {}} />
           </View>
         </View>
       </View>

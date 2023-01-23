@@ -1,9 +1,35 @@
-import React from 'react';
+import axios from 'axios';
+import React, {useState} from 'react';
 import {View, Text, TextInput, Pressable} from 'react-native';
 import {TAB_STACK} from '../../navigation/screen-names';
 import createStyles from './login.style';
 
 const LoginScreen = props => {
+  const [userName, setuserName] = useState('');
+  const [password, setpassword] = useState('');
+
+  const authenticateUser = async () => {
+    const body = {
+      username: userName, //'kminchelle',
+      password: password, //'0lelplR',
+    };
+
+    await axios
+      .post('https://dummyjson.com/auth/login', body, {
+        headers: {'Content-Type': 'application/json'},
+      })
+      .then(res => {
+        if (res.status == '200') {
+          props.navigation.navigate(TAB_STACK);
+          setuserName('');
+          setpassword('');
+        }
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  };
+
   return (
     <View style={createStyles.container}>
       <View style={createStyles.body}>
@@ -12,14 +38,29 @@ const LoginScreen = props => {
             <Text style={createStyles.headerText}>Practical Test</Text>
           </View>
           <View style={createStyles.inputContainer}>
-            <TextInput style={createStyles.input} placeholder={'Username'} />
-            <TextInput style={createStyles.input} placeholder={'Password'} />
+            <TextInput
+              value={userName}
+              style={createStyles.input}
+              placeholder={'Username'}
+              onChangeText={e => {
+                setuserName(e);
+              }}
+            />
+            <TextInput
+              value={password}
+              style={createStyles.input}
+              placeholder={'Password'}
+              secureTextEntry={true}
+              onChangeText={e => {
+                setpassword(e);
+              }}
+            />
           </View>
         </View>
         <View style={createStyles.wrapperBottom}>
           <Pressable
             onPress={() => {
-              props.navigation.navigate(TAB_STACK);
+              authenticateUser();
             }}
             style={({pressed}) => [
               {

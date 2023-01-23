@@ -11,7 +11,7 @@ const Button = props => {
         }}
         style={({pressed}) => [
           {
-            backgroundColor: pressed ? 'red' : 'blue',
+            backgroundColor: pressed ? '#2800fa' : '#6500f3',
           },
           createStyles.button,
         ]}>

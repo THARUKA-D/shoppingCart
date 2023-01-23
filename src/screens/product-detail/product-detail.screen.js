@@ -5,6 +5,7 @@ import SliderBar from '../../components/slider-bar/slider-bar';
 import Button from '../../components/button/button';
 import ImageSlider from '../../components/image-slider/image-slider';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import {Rating} from 'react-native-rating-element';
 
 const ProductDetailScreen = ({route}) => {
   const [buyQuantity, setBuyQuantity] = useState(1);
@@ -59,8 +60,18 @@ const ProductDetailScreen = ({route}) => {
 
           <View style={createStyles.info}>
             <Text style={createStyles.key}>Feedback</Text>
-            <Text style={createStyles.value}>{product.rating}</Text>
-            {/* todo: have to update the rating value with starts */}
+            <View style={createStyles.value}>
+              <Rating
+                rated={product.rating}
+                totalCount={5}
+                ratingColor="#6500f3"
+                ratingBackgroundColor="#d4d4d4"
+                size={18}
+                readonly={true}
+                icon="ios-star"
+                direction="row"
+              />
+            </View>
           </View>
         </View>
 

@@ -21,6 +21,8 @@ const LoginScreen = props => {
       .then(res => {
         if (res.status == '200') {
           props.navigation.navigate(TAB_STACK);
+          setuserName('');
+          setpassword('');
         }
       })
       .catch(err => {
@@ -37,6 +39,7 @@ const LoginScreen = props => {
           </View>
           <View style={createStyles.inputContainer}>
             <TextInput
+              value={userName}
               style={createStyles.input}
               placeholder={'Username'}
               onChangeText={e => {
@@ -44,6 +47,7 @@ const LoginScreen = props => {
               }}
             />
             <TextInput
+              value={password}
               style={createStyles.input}
               placeholder={'Password'}
               secureTextEntry={true}

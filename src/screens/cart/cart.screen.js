@@ -53,7 +53,7 @@ const CartScreen = ({navigation}) => {
             {cartItems &&
               cartItems.map((product, index) => (
                 <CartCard
-                  key={product.titel}
+                  key={index}
                   product={product}
                   index={index}
                   length={cartItems.length}

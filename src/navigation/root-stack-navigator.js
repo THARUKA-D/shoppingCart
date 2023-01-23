@@ -18,7 +18,7 @@ const RootStackNavigator = props => {
         options={{
           headerTitle: '',
           headerShown: false,
-          headerBackTitleVisible: false,
+          headerBackTitleVisible: false,    
         }}
       />
       <Stack.Screen
